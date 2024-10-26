@@ -16,9 +16,9 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
-    "tailwindcss": "^3.3.0", // Include if you're using Tailwind CSS
-    "postcss": "^8.4.6", // Required for Tailwind CSS
-    "autoprefixer": "^10.4.6" // Required for Tailwind CSS
+    "tailwindcss": "^3.3.0", 
+    "postcss": "^8.4.6",
+    "autoprefixer": "^10.4.6" 
   },
   "devDependencies": {
     "typescript": "^4.5.4",
