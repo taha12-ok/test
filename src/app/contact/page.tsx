@@ -1,190 +1,220 @@
-"use client";  // This makes it a Client Component
+"use client"; // This makes it a Client Component
 
-import { useState } from 'react';
-// pages/fontawesome.js
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons'; // For brand icons like Facebook, Instagram, etc.
-import { fas } from '@fortawesome/free-solid-svg-icons'; // For solid icons like play icon (used for Vercel)
+import { useState } from "react";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons"; // For brand icons
+import { fas } from "@fortawesome/free-solid-svg-icons"; // For solid icons
 
 // Add icons to the library
 library.add(fab, fas);
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    age: "",
+    phone: "",
+    occupation: "",
+    tahaBlogFeedback: "",
+    comment: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitted(true);
-    const phoneNumber = '923060484798';
+
+    const phoneNumber = formData.phone; // Use phone number from input
     const message = encodeURIComponent("Hi, I'm coming from TahaBlog!");
 
     // Open WhatsApp link with the pre-filled message
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#dde8f4] to-[#e0ecf4] py-10">
-   <div className="flex justify-center my-10">
-  <h1 className="text-3xl md:text-7xl font-bold text-gray-700">
-    {/* Contact with animation delays */}
-    <span className="inline-block animate-glow">S</span>
-    <span className="inline-block animate-glow [animation-delay:0.3s]">u</span>
-    <span className="inline-block animate-glow [animation-delay:0.6s]">b</span>
-    <span className="inline-block animate-glow [animation-delay:0.9s]">m</span>
-    <span className="inline-block animate-glow [animation-delay:1.2s]">i</span>
-    <span className="inline-block animate-glow [animation-delay:1.5s]">t</span>
-    
-    <span className="inline-block ml-4"> </span> 
-    
-    <span className="inline-block animate-glow [animation-delay:2.1s]">T</span>
-    <span className="inline-block animate-glow [animation-delay:2.4s]">h</span>
-    <span className="inline-block animate-glow [animation-delay:2.7s]">i</span>
-    <span className="inline-block animate-glow [animation-delay:3s]">s</span>
+      <div className="flex justify-center my-10">
+        <h1 className="text-3xl md:text-7xl font-bold text-gray-700">
+          <span className="inline-block animate-glow">S</span>
+          <span className="inline-block animate-glow [animation-delay:0.3s]">u</span>
+          <span className="inline-block animate-glow [animation-delay:0.6s]">b</span>
+          <span className="inline-block animate-glow [animation-delay:0.9s]">m</span>
+          <span className="inline-block animate-glow [animation-delay:1.2s]">i</span>
+          <span className="inline-block animate-glow [animation-delay:1.5s]">t</span>
+          <span className="inline-block ml-4"> </span>
+          <span className="inline-block animate-glow [animation-delay:2.1s]">T</span>
+          <span className="inline-block animate-glow [animation-delay:2.4s]">h</span>
+          <span className="inline-block animate-glow [animation-delay:2.7s]">i</span>
+          <span className="inline-block animate-glow [animation-delay:3s]">s</span>
+          <span className="inline-block ml-4"> </span>
+          <span className="inline-block animate-glow [animation-delay:3.6s]">F</span>
+          <span className="inline-block animate-glow [animation-delay:3.9s]">o</span>
+          <span className="inline-block animate-glow [animation-delay:4.2s]">r</span>
+          <span className="inline-block animate-glow [animation-delay:4.5s]">m</span>
+          <span className="inline-block ml-4"> </span>
+          <span className="inline-block animate-glow [animation-delay:5.1s]">P</span>
+          <span className="inline-block animate-glow [animation-delay:5.4s]">l</span>
+          <span className="inline-block animate-glow [animation-delay:5.8s]">e</span>
+          <span className="inline-block animate-glow [animation-delay:6.1s]">a</span>
+          <span className="inline-block animate-glow [animation-delay:6.4s]">s</span>
+          <span className="inline-block animate-glow [animation-delay:6.7s]">e</span>
+          <span className="inline-block animate-glow [animation-delay:7s]">!</span>
+        </h1>
+      </div>
 
-    <span className="inline-block ml-4"> </span> 
-
-    <span className="inline-block animate-glow [animation-delay:3.6s]">F</span>
-    <span className="inline-block animate-glow [animation-delay:3.9s]">o</span>
-    <span className="inline-block animate-glow [animation-delay:4.2s]">r</span>
-    <span className="inline-block animate-glow [animation-delay:4.5s]">m</span>
-
-    <span className="inline-block ml-4"> </span>
-
-    <span className="inline-block animate-glow [animation-delay:5.1s]">P</span>
-    <span className="inline-block animate-glow [animation-delay:5.4s]">l</span>
-    <span className="inline-block animate-glow [animation-delay:5.8s]">e</span>
-    <span className="inline-block animate-glow [animation-delay:6.1s]">a</span>
-    <span className="inline-block animate-glow [animation-delay:6.4s]">s</span>
-    <span className="inline-block animate-glow [animation-delay:6.7s]">e</span>
-    <span className="inline-block animate-glow [animation-delay:7s]">!</span>
-
-  </h1>
-</div>
       <div className="flex flex-col items-center my-10 p-10">
-  {!submitted ? (
-    <form
-      className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg transition-transform duration-200 hover:shadow-2xl hover:border-1 hover:border-gray-700"
-      onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <label className="block text-black text-sm font-bold mb-2" htmlFor="fullName">
-          Full Name
-        </label>
-        <input
-          type="text"
-          id="fullName"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
-          placeholder="Your Full Name"
-          required
-        />
-      </div>
+        {!submitted ? (
+          <form
+            className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg transition-transform duration-200 hover:shadow-2xl hover:border-1 hover:border-gray-700"
+            onSubmit={handleSubmit}
+          >
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="fullName">
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+                placeholder="Your Full Name"
+                required
+              />
+            </div>
 
-      {/* Email Address */}
-      <div className="mb-4">
-        <label className="block text-black text-sm font-bold mb-2" htmlFor="email">
-          Email Address
-        </label>
-        <input
-          type="email"
-          id="email"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-customslate leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
-          placeholder="Your Email Address"
-          required
-        />
-      </div>
+            {/* Email Address */}
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="email">
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+                placeholder="Your Email Address"
+                required
+              />
+            </div>
 
-      {/* Age */}
-      <div className="mb-4">
-        <label className="block text-black text-sm font-bold mb-2" htmlFor="age">
-          Age
-        </label>
-        <input
-          type="number"
-          id="age"
-          min="1"
-          max="100"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
-          placeholder="Your Age"
-          required
-        />
-      </div>
+            {/* Age */}
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="age">
+                Age
+              </label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                min="1"
+                max="100"
+                value={formData.age}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+                placeholder="Your Age"
+                required
+              />
+            </div>
 
-      {/* Phone Number */}
-      <div className="mb-4">
-        <label className="block text-black text-sm font-bold mb-2" htmlFor="phone">
-          Phone Number
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
-          placeholder="Your Phone Number"
-          required
-        />
-      </div>
+            {/* Phone Number */}
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="phone">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+                placeholder="Your Phone Number"
+                required
+              />
+            </div>
 
-      {/* Occupation */}
-      <div className="mb-4">
-        <label className="block text-black text-sm font-bold mb-2" htmlFor="occupation">
-          Occupation
-        </label>
-        <input
-          type="text"
-          id="occupation"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
-          placeholder="Your Occupation"
-          required
-        />
-      </div>
+            {/* Occupation */}
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="occupation">
+                Occupation
+              </label>
+              <input
+                type="text"
+                id="occupation"
+                name="occupation"
+                value={formData.occupation}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+                placeholder="Your Occupation"
+                required
+              />
+            </div>
 
-      {/* How was TahaBlog? */}
-      <div className="mb-4">
-        <label className="block text-black text-sm font-bold mb-2" htmlFor="tahaBlog">
-          How was TahaBlog?
-        </label>
-        <select
-          id="tahaBlog"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
-          required
-        >
-          <option value="">Select an option</option>
-          <option value="nice">😄 Nice</option>
-          <option value="average">🙂 Average</option>
-          <option value="excellent">🤩 Excellent</option>
-          <option value="greatWork">🔥 Great Work</option>
-        </select>
-      </div>
+            {/* How was TahaBlog? */}
+            <div className="mb-4">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="tahaBlogFeedback">
+                How was TahaBlog?
+              </label>
+              <select
+                id="tahaBlogFeedback"
+                name="tahaBlogFeedback"
+                value={formData.tahaBlogFeedback}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+                required
+              >
+                <option value="">Select an option</option>
+                <option value="nice">😄 Nice</option>
+                <option value="average">🙂 Average</option>
+                <option value="excellent">🤩 Excellent</option>
+                <option value="greatWork">🔥 Great Work</option>
+              </select>
+            </div>
 
-      {/* Comment */}
-      <div className="mb-6">
-        <label className="block text-black text-sm font-bold mb-2" htmlFor="comment">
-          Comment
-        </label>
-        <textarea
-          id="comment"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
-          placeholder="Your Message"
-          required
-        />
-      </div>
+            {/* Comment */}
+            <div className="mb-6">
+              <label className="block text-black text-sm font-bold mb-2" htmlFor="comment">
+                Your Comment
+              </label>
+              <textarea
+                id="comment"
+                name="comment"
+                value={formData.comment}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+                placeholder="Your Comment"
+                rows={4}
+                required
+              />
+            </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:bg-blue-700 hover:scale-105"
-      >
-        Submit
-      </button>
-    </form>
-  ) : (
-    <div className="mt-10 text-center">
-      <p className="text-2xl font-bold text-green-500">🎉🐹 Thanks For Your Comments! 🎉</p>
-      <p className="mt-4 text-xl text-gray-600">Your comment has been submitted successfully!</p>
-    </div>
-  )}
-</div>
+            <div className="flex items-center justify-between">
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform transition-transform duration-200 hover:scale-105"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div className="flex flex-col items-center justify-center p-4 text-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Thank you for your feedback!</h2>
+            <p className="text-lg">We appreciate your time and effort. You will be contacted soon.</p>
+          </div>
+        )}
+      </div>
+   
 
 
       {/* Follow Me Section */}
